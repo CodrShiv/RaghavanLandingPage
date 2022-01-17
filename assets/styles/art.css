@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
+body {
+  background-color: var(--offLight);
+  padding-bottom: 2rem;
+}
+#header {
+  display: flex;
+  flex-direction: column;
+}
+#quote {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  padding: 2rem 0.5rem;
+}
+#quote h1 {
+  font-size: 3rem;
+}
+#quote,
+#quote * {
+  font-family: "Abril Fatface", sans-serif !important;
+  font-weight: 100;
+  color: var(--accent);
+  text-align: center;
+}
+#navBar {
+  background-color: var(--light);
+}
+#navBar h1 {
+  color: var(--accent);
+  font-size: 1.75rem;
+}
+.accent {
+  color: var(--dark) !important;
+}
+#navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+}
+#menuIcon {
+  position: relative;
+}
+#artwork {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+#artwork img {
+  max-height: 30rem !important;
+}
+
+/* Dedicated Page for each Artwork */
+.PaintingDescription {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  min-height: 100vh;
+  z-index: 4;
+  width: 100%;
+  gap: 0 3rem;
+  padding: 2rem 0.5rem;
+  background-color: var(--light);
+  font-family: "Proza Libre", sans-serif;
+  transform: translateX(-100%);
+  transition: transform 1000ms ease;
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+.DescriptionOpen {
+  transform: none;
+  opacity: 1;
+  pointer-events: all;
+  z-index: 3;
+}
+.PaintingDescription > .CloseIcon {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(1);
+  width: 2rem;
+  height: 2rem;
+  border: 0.1rem solid transparent;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  cursor: pointer;
+}
+.PaintingDescription > .CloseIcon::after,
+.PaintingDescription > .CloseIcon::before {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  width: 2rem;
+  height: 0.1rem;
+  background: var(--dark);
+  transform: rotate(45deg);
+  top: 8px;
+  left: 1px;
+}
+.PaintingDescription > .CloseIcon::after {
+  transform: rotate(-45deg);
+}
+.PaintingDescription .DescriptionText {
+  max-width: 30ch;
+  color: var(--dark);
+}
+.PaintingDescription .DescriptionText h1 {
+  font-size: 2.5rem;
+  margin: 0 0 1rem 0;
+}
+.PaintingDescription .DescriptionText p {
+  line-height: 2;
+  opacity: 0.9;
+}
+
+.PaintingDescription img {
+  max-height: 100vh;
+}
+.PaintingDescription .Links {
+  display: flex;
+  gap: 2rem;
+  margin: 1rem 0 0 0;
+}
+@media only screen and (max-aspect-ratio: 7/5) {
+    .PaintingDescription img {
+      max-height: 80vh;
+      min-width: 50vw;
+      max-width: 95vw;
+    }
+  }
+@media only screen and (oritentation: portrait) {
+  #artwork img {
+    width: 40vw;
+    height: auto;
+    max-height: auto !important;
+  }
+}
+@media only screen and (max-width: 470px) {
+  html {
+    font-size: 13px;
+  }
+}
+@media only screen and (max-aspect-ratio: 7/6) {
+
+    .PaintingDescription {
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .PaintingDescription img {
+      margin-top: 3rem;
+    }
+    .PaintingDescription h1 {
+      margin: 1rem 0 !important; 
+      text-align: center;
+    }
+    .PaintingDescription .DescriptionText {
+      max-width: 90vw;
+      text-align: center;
+    }
+    .Links {
+        align-items: center;
+        justify-content: center;
+    }
+}
+/* Hiding everything when Popups are shown */
+.EmptyBody > * {
+  display: none !important;
+}
+.EmptyBody > #pages,
+.EmptyBody > #header{
+  display: flex !important;
+}

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- 
+  <!-- 
     ---------- CodrShiv ---------- 
     Designed, Developed & Deployed 
     - This Website from scratch! - 
@@ -11,11 +11,11 @@
     ------- Look at my Work -------- 
     https://www.github.com/CodrShiv 
  -->
-<head>
+  <head>
     <!-- Metadata Tags for SEO -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -29,56 +29,91 @@
     <meta name="language" content="English" />
     <title>Raghavan's Artwork</title>
     <!-- Favicon References -->
-    <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/favicon/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/favicon/favicon-16x16.png" />
-    <link rel="mask-icon" href="./assets/img/favicon/safari-pinned-tab.svg" color="#333e89" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./assets/img/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/img/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/img/favicon/favicon-16x16.png"
+    />
+    <link
+      rel="mask-icon"
+      href="./assets/img/favicon/safari-pinned-tab.svg"
+      color="#333e89"
+    />
     <link rel="manifest" href="./assets/img/favicon/site.webmanifest" />
     <!-- Custom Stylesheets -->
     <link rel="stylesheet" href="./assets/styles/main.css" type="text/css" />
+    <link rel="stylesheet" href="./assets/styles/art.css" type="text/css" />
     <!-- Script to initiate a GraphQL Query asynchronously and Populating the Paintings -->
-    <script src="./assets/scripts/artwork.js" type="application/javascript" async></script>
+    <script
+      src="./assets/scripts/artwork.js"
+      type="application/javascript"
+      async
+    ></script>
     <!-- Script to Fade/Hide Elements on Scroll - ScrollFade.js released under the Terms of MIT License -->
-    <script src="./assets/scripts/scrollfade.js" type="application/javascript" defer></script>
+    <script
+      src="./assets/scripts/scrollfade.js"
+      type="application/javascript"
+      defer
+    ></script>
     <!-- Loader and Menu Script  -->
-    <script src="./assets/scripts/main.js" type="application/javascript" defer></script>
-</head>
+    <script
+      src="./assets/scripts/main.js"
+      type="application/javascript"
+      defer
+    ></script>
+  </head>
 
-<body>
+  <body>
     <!-- Loader - Hidden when DOM Content Loaded -->
     <div class="loader">
-        <div class="outerCircle">
-            <div class="innerCircle"></div>
-        </div>
+      <div class="outerCircle">
+        <div class="innerCircle"></div>
+      </div>
     </div>
     <!-- Navigation Page - Toggled from Menu Button-->
     <nav id="nav">
-        <ul id="navItems">
-            <!-- Navigation Links -->
-            <li class="navItem">
-                <a class="navLink current" title="View Home Page" href="./index.html"><span>HOME</span></a>
-            </li>
-        </ul>
+      <ul id="navItems">
+        <!-- Navigation Links -->
+        <li class="navItem">
+          <a class="navLink" title="View Home Page" href="./index.html"><span>HOME</span></a>
+        </li>
+        <li class="navItem">
+            <a class="navLink current" title="View Art Page" href="./artwork.html"><span>ARTWORK</span></a>
+        </li>
+      </ul>
     </nav>
     <!-- Header -->
     <header id="header">
-        <h1>Raghavan</h1>
+      <div id="navBar">
+        <h1><span class="accent">Raghavan</span>.</h1>
         <ul id="menuIcon">
-            <li class="iconBar1 iconBar"></li>
-            <li class="iconBar2 iconBar"></li>
-            <li class="iconBar3 iconBar"></li>
+          <li class="iconBar1 iconBar"></li>
+          <li class="iconBar2 iconBar"></li>
+          <li class="iconBar3 iconBar"></li>
         </ul>
+      </div>
+      <div id="quote">
+        <h1><span class="accent">Art is too important <br> not to share</span>.</h1>
+        <p class="accent">- Romero Britto</p>
+      </div>
     </header>
-
+    <a href="#header" style="display: none;" class="backToTop"></a>
     <!-- Artwork Section - Populated upon GraphQL Query -->
-    <main id="artwork">
-
-    </main>
+    <main id="artwork"></main>
 
     <!-- Pages for each Artwork - Populated upon GraphQL Query -->
-    <section id="pages">
-
-    </section>
-</body>
-
+    <section id="pages"></section>
+  </body>
 </html>

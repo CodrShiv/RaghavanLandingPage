@@ -158,24 +158,6 @@ body {
   display: none !important;
 }
 
-/* Fade on Scroll */
-.scrollFade {
-  opacity: 1;
-  pointer-events: all;
-}
-.scrollFade--hidden {
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-3rem);
-}
-.scrollFade--visible {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: all;
-}
-.scrollFade--animate {
-  transition: opacity 1000ms 100ms ease, transform 800ms 100ms ease;
-}
 
 /* Dedicated Page for each Artwork */
 .PaintingDescription {
@@ -311,6 +293,7 @@ body {
   }
 }
 @media only screen and (max-aspect-ratio: 7/6) {
+
   .PaintingDescription {
     flex-direction: column;
     align-items: center;
@@ -377,6 +360,6 @@ body {
 .EmptyBody > *, .EmptySections #CTA {
   display: none !important;
 }
-.EmptyBody > #pages, .EmptyBody > #header, .backToTop {
+.EmptyBody > #pages, .EmptyBody > #header {
   display: flex !important;
 }

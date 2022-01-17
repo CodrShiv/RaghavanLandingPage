@@ -111,11 +111,3 @@ function populateHome(data) {
     }).mount();
   }
 }
-// Function to Toggle Pop Up Description
-function toggleDescription(identifier) {
-  document.querySelector(".backToTop").click();
-  document
-    .querySelector(`.${identifier}.PaintingDescription`)
-    .classList.toggle("DescriptionOpen");
-  document.body.classList.toggle("EmptyBody");
-}
