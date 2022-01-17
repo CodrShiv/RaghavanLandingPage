@@ -13,9 +13,10 @@
   --dark: #333e89;
   --accent: #fc5e35;
 }
-body {
+body, html {
+  width: 100%;
+  min-height: 100%;
   overflow-x: hidden;
-  max-width: 100vw;
 }
 /* Loader */
 .loader {
@@ -90,9 +91,7 @@ body::-webkit-scrollbar-thumb {
   transition: opacity 800ms 600ms, transform 800ms 700ms;
   transform: translateX(-100%);
 }
-.menuPopUp {
-  overflow: hidden;
-}
+
 .menuPopUp #nav {
   opacity: 1;
   transform: translateX(0);
@@ -239,7 +238,7 @@ body::-webkit-scrollbar-thumb {
 .menuPopUp #menuIcon { 
   position: fixed;
   top: 1rem;
-  right: 2rem;
+  left: 90vw;
   z-index: 2;
 }
 .menuPopUp #menuIcon .iconBar1 {

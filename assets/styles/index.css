@@ -1,3 +1,4 @@
+/* Global */
 html {
   font-size: 2.3vmin;
   scroll-behavior: smooth;
@@ -5,12 +6,12 @@ html {
 body {
   overflow-x: hidden;
 }
-
+/* Header */
 #header {
   display: flex;
   justify-content: space-between;
   min-height: 100vh;
-  min-width: 100vw;
+  min-width: 100%;
 }
 .heroArt {
   max-height: 100vh;
@@ -26,10 +27,17 @@ body {
   position: relative;
   margin: 1rem auto;
 }
-#introText #name {
+#name {
   font-size: 4rem;
 }
-#introText #name #about {
+#CTA {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+#about {
   display: inline-flex !important;
   align-items: center;
   justify-content: center;
@@ -48,23 +56,17 @@ body {
 #welcomeText{
   font-size: 3.5rem;
 }
-#CTA {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  justify-content: center;
-  gap: 2rem;
+#heroHighlight {
+  font-weight: 600;
+  color: var(--dark);
 }
+/* Menu Icon */
 #menuIcon {
   position: absolute;
   top: 1rem;
   right: 2rem;
 }
 
-#heroHighlight {
-  font-weight: 600;
-  color: var(--dark);
-}
 /* Down Arrow */
 .arrow {
   content: '';
@@ -85,13 +87,16 @@ body {
 .arrow:hover {
   border-width: 0.3rem;
 }
+
+/* Slider - Each Section on the Home Page */
 .slider {
-  padding: 0 11vmin 0 9vmin;
-  background: var(--light);
-  box-shadow: 0 0 2rem 1rem rgba(0,0,0,.15);
   max-width: 100vw;
   z-index: 1;
+  padding: 0 11vmin;
+  background: var(--light);
+  box-shadow: 0 0 2rem 1rem rgba(0,0,0,.15);
 }
+/* Explore Link */
 .slider > a {
   color: var(--dark);
   margin: 1rem 0 2rem auto;
@@ -123,6 +128,7 @@ body {
   right: -6.5rem;
 }
 
+/* Slider Heading */
 .slider > h1 {
   padding: 1.5rem 0 1rem 0;
   text-transform: capitalize;
@@ -142,6 +148,8 @@ body {
   display: inline-block;
   border-radius: 50%;
 }
+
+/* Slider Painting */
 .slider img {
   max-height: 30rem !important;
   margin: 0 .15rem;
@@ -149,6 +157,8 @@ body {
 .splide__pagination {
   display: none !important;
 }
+
+/* Fade on Scroll */
 .scrollFade {
   opacity: 1;
   pointer-events: all;
@@ -167,6 +177,7 @@ body {
   transition: opacity 1000ms 100ms ease, transform 800ms 100ms ease;
 }
 
+/* Dedicated Page for each Artwork */
 .PaintingDescription {
   display: flex;
   align-items: center;
@@ -235,6 +246,8 @@ body {
   gap: 2rem;
   margin: 1rem 0 0 0;
 }
+
+/* Responsive Design Media Queries */
 @media only screen and (max-aspect-ratio: 7/5) {
   .PaintingDescription img {
     max-height: 80vh;
@@ -357,7 +370,9 @@ body {
     box-shadow: 0 0 0 1rem rgba(255,255,255,.5);
   }
 }
-.EmptyBody > * {
+
+/* Hiding everything when Popups are shown */
+.EmptyBody > *, .EmptySections #CTA {
   display: none !important;
 }
 .EmptyBody > #pages, .EmptyBody > #header, .backToTop {

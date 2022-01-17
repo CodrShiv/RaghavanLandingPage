@@ -1,3 +1,4 @@
+// Options for GraphQL Query
 const options = {
   method: "POST",
   headers: {
@@ -17,21 +18,30 @@ const options = {
       `,
   }),
 };
+// Fetching the Paintings Data as JSON from the GraphCMS Endpoint
 fetch(
   "https://api-us-east-1.graphcms.com/v2/ckyb9ipil15h201z2g4mj5kig/master",
   options
 )
   .then((res) => res.json())
   .then((res) => populateHome(res.data));
+
+// Populating the Home with the received Data
 function populateHome(data) {
+  // Returning if Query failed or Data is empty
+  if (data.artwork.length <= 0)
+    return document.body.classList.add("EmptySections");
   let root = document.querySelector("#sections"),
-  navLinksRoot = document.querySelector("#navItems");
+    navLinksRoot = document.querySelector("#navItems");
+  // Looping through each Object in Data
   for (title in data) {
+    // Adding NavLink for the dedicated Page
     navLinksRoot.innerHTML += `
         <li class="navItem">
             <a class="navLink" title="View ${title.toUpperCase()} Page" href="./${title}.html"><span>${title.toUpperCase()}</span></a>
         </li>
-    `
+    `;
+    // Adding a Section leading to the dedicated Page
     root.innerHTML += `
         <div id="${title}" class="slider scrollFade">
             <h1 id="${title}Heading">${title}</h1>
@@ -42,15 +52,18 @@ function populateHome(data) {
                     </ul>
                 </div>
             </div>
-            <a class="PaintingsViewMore" href="./${title}.html">Explore </a>
+            <a class="viewMore" href="./${title}.html">Explore </a>
         </div>
     `;
+    // Looping through each Post in an Object
     for (i = 0; i < data[title].length; i++) {
+      // Adding each Post to the Slider
       document.querySelector(`#${title} .splide__list`).innerHTML += `
             <li class="post splide__slide ${data[title][i].id} scrollFade" onclick='toggleDescription("${data[title][i].id}")'>
                 <img src="${data[title][i].thumbnail.url}" alt="${data[title][i].title}">
             </li>
         `;
+      // Creating a Page for each Post
       document.querySelector("#pages").innerHTML += `
       <div class="PaintingDescription ${data[title][i].id}">
         <div class="CloseIcon" onclick="toggleDescription('${data[title][i].id}')"></div>
@@ -89,16 +102,22 @@ function populateHome(data) {
           </div>
         </div>
       </div>
-      `
+      `;
     }
+    // Initializing the Slider
     new Splide(`#${title} .splide`, {
       perMove: 1,
       autoWidth: true,
     }).mount();
   }
 }
+// Function to Toggle Pop Up Description
 function toggleDescription(identifier) {
-  document.querySelector(".backToTop").click()
-  document.querySelector(`.${identifier}.PaintingDescription`).classList.toggle("DescriptionOpen");
+  setTimeout(() => {
+    document.querySelector(".backToTop").click();
+  }, 300)
+  document
+    .querySelector(`.${identifier}.PaintingDescription`)
+    .classList.toggle("DescriptionOpen");
   document.body.classList.toggle("EmptyBody");
 }
