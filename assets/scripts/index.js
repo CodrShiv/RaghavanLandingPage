@@ -8,7 +8,7 @@ const options = {
   body: JSON.stringify({
     query: `
           query {
-            artwork {
+            art {
                 id,
                 title,
                 content,
@@ -29,7 +29,7 @@ fetch(
 // Populating the Home with the received Data
 function populateHome(data) {
   // Returning if Query failed or Data is empty
-  if (data.artwork.length <= 0)
+  if (data.art.length <= 0)
     return document.body.classList.add("EmptySections");
   let root = document.querySelector("#sections"),
     navLinksRoot = document.querySelector("#navItems");
@@ -109,5 +109,20 @@ function populateHome(data) {
       perMove: 1,
       autoWidth: true,
     }).mount();
+  }
+}
+function toggleDescription(identifier) {
+  setTimeout(() => {
+    window.scrollTo(0, 0);  
+    if (!document.querySelector(`.${identifier}.PaintingDescription`).classList.contains("DescriptionOpen")) {
+      window.scrollTo(0, document.body.offsetHeight);
+    }
+  }, 400);
+  document
+    .querySelector(`.${identifier}.PaintingDescription`)
+    .classList.toggle("DescriptionOpen");
+  document.body.classList.toggle("EmptyBody");
+  if (!document.querySelector(`.${identifier}.PaintingDescription`).classList.contains("DescriptionOpen")) {
+    window.scrollTo(0, document.body.offsetHeight);
   }
 }

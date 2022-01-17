@@ -8,7 +8,7 @@ const options = {
   body: JSON.stringify({
     query: `
             query {
-              artwork {
+              art {
                   id,
                   title,
                   content,
@@ -24,16 +24,16 @@ fetch(
   options
 )
   .then((res) => res.json())
-  .then((res) => populateArt(res.data.artwork));
+  .then((res) => populateArt(res.data.art));
 function populateArt(data) {
   if (data.length <= 0) return;
   for (i = 0; i < data.length; i++) {
     document.querySelector("#artwork").innerHTML += `
-        <img src="${data[i].thumbnail.url}" title="${data[i].title}" class="${data[i].id} scrollFade" onclick="toggleDescription('${data[i].id}')"/>
+        <img src="${data[i].thumbnail.url}" title="${data[i].title}" class="${data[i].id} scrollFade" onclick="toggleContent('${data[i].id}')"/>
     `
     document.querySelector("#pages").innerHTML += `
     <div class="PaintingDescription ${data[i].id}">
-        <div class="CloseIcon" onclick="toggleDescription('${data[i].id}')"></div>
+        <div class="CloseIcon" onclick="toggleContent('${data[i].id}')"></div>
         <div class="PaintingContainer">
         <img src="${data[i].thumbnail.url}" alt="${data[i].title}" title="${data[i].title}">
         </div>
@@ -71,4 +71,12 @@ function populateArt(data) {
     </div>
     `
   }
+}
+// Function to Toggle Pop Up Description
+function toggleContent(identifier) {
+  document.querySelector(".backToTop").click();
+  document
+    .querySelector(`.${identifier}.PaintingDescription`)
+    .classList.toggle("DescriptionOpen");
+  document.body.classList.toggle("EmptyBody");
 }

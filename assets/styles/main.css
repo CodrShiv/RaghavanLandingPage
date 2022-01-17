@@ -3,16 +3,19 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   font-family: "Proza Libre", sans-serif;
 }
+
 :root {
   --light: #ffffff;
   --lightSecondary: #feae31;
   --offLight: #f4f4f4;
   --dark: #333e89;
-  --accent: #fc5e35;
+  --accent: hsl(12, 97%, 60%);
 }
+
 body, html {
   width: 100%;
   min-height: 100%;
@@ -26,23 +29,41 @@ body, html {
   z-index: 3;
   height: 100vh;
   width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background-color: var(--light);
+  -webkit-transition: opacity 800ms 700ms, -webkit-transform 800ms 600ms;
+  transition: opacity 800ms 700ms, -webkit-transform 800ms 600ms;
   transition: opacity 800ms 700ms, transform 800ms 600ms;
+  transition: opacity 800ms 700ms, transform 800ms 600ms, -webkit-transform 800ms 600ms;
 }
+
 .outerCircle {
   width: 8rem;
   height: 8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   border: 0.3rem solid var(--dark);
   border-color: var(--dark) transparent var(--dark) var(--dark);
   border-radius: 50%;
-  animation: spin 1200ms linear infinite;
+  -webkit-animation: spin 1200ms linear infinite;
+          animation: spin 1200ms linear infinite;
 }
+
 .innerCircle {
   width: 5rem;
   height: 5rem;
@@ -50,17 +71,34 @@ body, html {
   border-color: var(--accent) var(--accent) transparent var(--accent);
   border-radius: 50%;
 }
+
 .loaded .loader {
-  transform: translateY(-100vh);
-  backdrop-filter: blur(20rem);
+  -webkit-transform: translateY(-100vh);
+          transform: translateY(-100vh);
+  -webkit-backdrop-filter: blur(20rem);
+          backdrop-filter: blur(20rem);
   opacity: 0.5;
 }
-@keyframes spin {
+
+@-webkit-keyframes spin {
   0% {
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
   100% {
-    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 
@@ -68,13 +106,16 @@ body, html {
 body::-webkit-scrollbar {
   width: 0.5rem;
 }
+
 body {
   scrollbar-width: thin;
   scrollbar-color: var(--lightSecondary) var(--offLight);
 }
+
 body::-webkit-scrollbar-track {
   background: var(--offLight);
 }
+
 body::-webkit-scrollbar-thumb {
   background-color: var(--lightSecondary);
   border-radius: 0.25rem;
@@ -89,27 +130,44 @@ body::-webkit-scrollbar-thumb {
   height: 100vh;
   z-index: 2;
   background-color: var(--light);
+  -webkit-transition: opacity 800ms 600ms, -webkit-transform 800ms 700ms;
+  transition: opacity 800ms 600ms, -webkit-transform 800ms 700ms;
   transition: opacity 800ms 600ms, transform 800ms 700ms;
-  transform: translateX(-100%);
+  transition: opacity 800ms 600ms, transform 800ms 700ms, -webkit-transform 800ms 700ms;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
 }
 
 .menuPopUp #nav {
   opacity: 1;
-  transform: translateX(0);
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
 }
+
 /* Navigation Links */
 #navItems {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   gap: 10vmin 0;
   height: 100%;
   width: 100%;
 }
+
 .navItem {
   list-style-type: none;
 }
+
 .navLink {
   text-decoration: none;
   color: var(--dark) !important;
@@ -117,67 +175,90 @@ body::-webkit-scrollbar-thumb {
   font-size: 4rem;
   display: inline-block;
   overflow: hidden;
+  -webkit-transition: all 800ms;
   transition: all 800ms;
 }
+
 .navLink.current {
   color: var(--accent) !important;
 }
+
 .navLink:hover {
   color: var(--lightSecondary) !important;
 }
+
 .navLink,
 .navLink > span {
   position: relative;
 }
+
 .navLink > span {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   padding: 0.5rem 2rem;
 }
+
 .navLink:before,
 .navLink:after,
 .navLink > span:before,
 .navLink > span:after {
   content: "";
   position: absolute;
+  -webkit-transition: -webkit-transform 500ms ease;
+  transition: -webkit-transform 500ms ease;
   transition: transform 500ms ease;
+  transition: transform 500ms ease, -webkit-transform 500ms ease;
 }
+
 .navLink:before,
 .navLink:after {
   right: 0;
   bottom: 0;
   background-color: var(--lightSecondary);
 }
+
 .navLink:before {
   width: 100%;
   height: 1rem;
-  transform: translateX(-100%);
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
 }
+
 .navLink:after {
   width: 1rem;
   height: 100%;
-  transform: translateY(100%);
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
 }
+
 .navLink > span:before,
 .navLink > span:after {
   left: 0;
   top: 0;
   background-color: var(--lightSecondary);
 }
+
 .navLink > span:before {
   width: 100%;
   height: 1rem;
-  transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
 }
+
 .navLink > span:after {
   width: 1rem;
   height: 100%;
-  transform: translateY(-100%);
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
 }
+
 .navLink:hover:before,
 .navLink:hover:after,
 .navLink:hover > span:before,
 .navLink:hover > span:after {
-  transform: translate(0, 0);
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
 }
 
 /* MenuIcon */
@@ -189,73 +270,76 @@ body::-webkit-scrollbar-thumb {
   z-index: 2;
   position: absolute;
 }
+
 .iconBar {
   list-style: none;
   position: absolute;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
   width: 70%;
   height: 0.2rem;
   background: var(--dark);
+  -webkit-transition: 800ms;
   transition: 800ms;
 }
+
 .iconBar1 {
   top: 20%;
   left: 15%;
-  transition-delay: 700ms;
+  -webkit-transition-delay: 700ms;
+          transition-delay: 700ms;
   opacity: 1;
-  background: linear-gradient(
-    90deg,
-    var(--dark) 0%,
-    var(--dark) 20%,
-    var(--accent) 20%,
-    var(--accent) 100%
-  );
+  background: -webkit-gradient(linear, left top, right top, from(var(--dark)), color-stop(20%, var(--dark)), color-stop(20%, var(--accent)), to(var(--accent)));
+  background: linear-gradient(90deg, var(--dark) 0%, var(--dark) 20%, var(--accent) 20%, var(--accent) 100%);
 }
+
 .iconBar2 {
   top: 50%;
   left: 15%;
-  transition-delay: 0ms;
-  background: linear-gradient(
-    90deg,
-    var(--dark) 0%,
-    var(--dark) 50%,
-    var(--accent) 50%,
-    var(--accent) 100%
-  );
+  -webkit-transition-delay: 0ms;
+          transition-delay: 0ms;
+  background: -webkit-gradient(linear, left top, right top, from(var(--dark)), color-stop(50%, var(--dark)), color-stop(50%, var(--accent)), to(var(--accent)));
+  background: linear-gradient(90deg, var(--dark) 0%, var(--dark) 50%, var(--accent) 50%, var(--accent) 100%);
 }
+
 .iconBar3 {
   top: 80%;
   right: 15%;
-  transition-delay: 700ms;
+  -webkit-transition-delay: 700ms;
+          transition-delay: 700ms;
   opacity: 1;
-  background: linear-gradient(
-    90deg,
-    var(--dark) 0%,
-    var(--dark) 20%,
-    var(--accent) 20%,
-    var(--accent) 100%
-  );
+  background: -webkit-gradient(linear, left top, right top, from(var(--dark)), color-stop(20%, var(--dark)), color-stop(20%, var(--accent)), to(var(--accent)));
+  background: linear-gradient(90deg, var(--dark) 0%, var(--dark) 20%, var(--accent) 20%, var(--accent) 100%);
 }
-.menuPopUp #menuIcon { 
+
+.menuPopUp #menuIcon {
   position: fixed;
   top: 1rem;
   right: 1rem;
   z-index: 2;
 }
+
 .menuPopUp #menuIcon .iconBar1 {
   left: 100%;
-  transition-delay: 0s;
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
   opacity: 0;
 }
+
 .menuPopUp #menuIcon .iconBar2 {
-  transform: translateY(-50%) rotate(405deg);
-  transition-delay: 300ms;
+  -webkit-transform: translateY(-50%) rotate(405deg);
+          transform: translateY(-50%) rotate(405deg);
+  -webkit-transition-delay: 300ms;
+          transition-delay: 300ms;
 }
+
 .menuPopUp #menuIcon .iconBar3 {
   right: 100%;
-  transition-delay: 0s;
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
   opacity: 0;
 }
+
 .iconBar2::before {
   content: "";
   position: absolute;
@@ -264,13 +348,18 @@ body::-webkit-scrollbar-thumb {
   width: 100%;
   height: 100%;
   background: #262626;
-  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -webkit-transition: 500ms;
   transition: 500ms;
-  transition-delay: 200ms;
+  -webkit-transition-delay: 200ms;
+          transition-delay: 200ms;
 }
+
 .menuPopUp #menuIcon .iconBar2::before {
   top: 0;
-  transition-delay: 1000ms;
+  -webkit-transition-delay: 1000ms;
+          transition-delay: 1000ms;
 }
 
 /* Fade on Scroll */
@@ -278,16 +367,25 @@ body::-webkit-scrollbar-thumb {
   opacity: 1;
   pointer-events: all;
 }
+
 .scrollFade--hidden {
   opacity: 0;
   pointer-events: none;
-  transform: translateY(-2rem);
+  -webkit-transform: translateY(-2rem);
+          transform: translateY(-2rem);
 }
+
 .scrollFade--visible {
   opacity: 1;
-  transform: translateY(0);
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
   pointer-events: all;
 }
+
 .scrollFade--animate {
+  -webkit-transition: opacity 800ms 200ms ease, -webkit-transform 400ms 100ms ease;
+  transition: opacity 800ms 200ms ease, -webkit-transform 400ms 100ms ease;
   transition: opacity 800ms 200ms ease, transform 400ms 100ms ease;
+  transition: opacity 800ms 200ms ease, transform 400ms 100ms ease, -webkit-transform 400ms 100ms ease;
 }
+/*# sourceMappingURL=main.css.map */
