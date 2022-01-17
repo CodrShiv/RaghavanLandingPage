@@ -30,7 +30,7 @@ function populateArt(data) {
   for (i = 0; i < data.length; i++) {
     document.querySelector("#artwork").innerHTML += `
         <img src="${data[i].thumbnail.url}" title="${data[i].title}" class="${data[i].id} scrollFade" onclick="toggleContent('${data[i].id}')"/>
-    `
+    `;
     document.querySelector("#pages").innerHTML += `
     <div class="PaintingDescription ${data[i].id}">
         <div class="CloseIcon" onclick="toggleContent('${data[i].id}')"></div>
@@ -69,12 +69,12 @@ function populateArt(data) {
         </div>
         </div>
     </div>
-    `
+    `;
   }
 }
 // Function to Toggle Pop Up Description
 function toggleContent(identifier) {
-  document.querySelector(".backToTop").click();
+  window.scrollTo(0, 0);
   document
     .querySelector(`.${identifier}.PaintingDescription`)
     .classList.toggle("DescriptionOpen");

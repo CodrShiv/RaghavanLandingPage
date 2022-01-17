@@ -108,6 +108,7 @@ function populateHome(data) {
     new Splide(`#${title} .splide`, {
       perMove: 1,
       autoWidth: true,
+      
     }).mount();
   }
 }
