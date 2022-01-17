@@ -113,9 +113,7 @@ function populateHome(data) {
 }
 // Function to Toggle Pop Up Description
 function toggleDescription(identifier) {
-  setTimeout(() => {
-    document.querySelector(".backToTop").click();
-  }, 300)
+  document.querySelector(".backToTop").click();
   document
     .querySelector(`.${identifier}.PaintingDescription`)
     .classList.toggle("DescriptionOpen");
