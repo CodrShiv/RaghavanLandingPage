@@ -1,0 +1,365 @@
+html {
+  font-size: 2.3vmin;
+  scroll-behavior: smooth;
+}
+body {
+  overflow-x: hidden;
+}
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+.heroArt {
+  max-height: 100vh;
+  height: 100vh;
+}
+#hero {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-around;
+  color: var(--accent);
+  font-weight: 500;
+  position: relative;
+  margin: 1rem auto;
+}
+#introText #name {
+  font-size: 4rem;
+}
+#introText #name #about {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+#about > p {
+  font-size: 1.1rem;
+  opacity: .9;
+}
+#about > p #heroHighlight {
+  font-size: .95rem;
+}
+#emoji {
+  font-size: 1.5rem;
+}
+#welcomeText{
+  font-size: 3.5rem;
+}
+#CTA {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+#menuIcon {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+}
+
+#heroHighlight {
+  font-weight: 600;
+  color: var(--dark);
+}
+/* Down Arrow */
+.arrow {
+  content: '';
+  display: inline-block;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0 0 0 1rem;
+  background: transparent;
+  border-top: 0.15rem solid var(--dark);
+  border-left: 0.15rem solid var(--dark);
+  border-color: var(--dark) var(--accent);
+  transition: all 300ms ease-in-out;
+  text-decoration: none;
+  color: transparent;
+  cursor: pointer;
+  transform: rotate(-135deg);
+}
+.arrow:hover {
+  border-width: 0.3rem;
+}
+.slider {
+  padding: 0 11vmin 0 9vmin;
+  background: var(--light);
+  box-shadow: 0 0 2rem 1rem rgba(0,0,0,.15);
+  max-width: 100vw;
+  z-index: 1;
+}
+.slider > a {
+  color: var(--dark);
+  margin: 1rem 0 2rem auto;
+  padding-bottom: 2rem;
+  text-decoration: none;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  position: relative;
+}
+.slider > a::after {
+  background: url("data:image/svg+xml,%3Csvg width='129' height='24' viewBox='0 0 129 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M128.159 13.0607C128.745 12.4749 128.745 11.5251 128.159 10.9393L118.613 1.3934C118.027 0.807611 117.078 0.807611 116.492 1.3934C115.906 1.97919 115.906 2.92893 116.492 3.51472L124.977 12L116.492 20.4853C115.906 21.0711 115.906 22.0208 116.492 22.6066C117.078 23.1924 118.027 23.1924 118.613 22.6066L128.159 13.0607ZM0 13.5L127.098 13.5V10.5L0 10.5L0 13.5Z' fill='%23FC5E35'/%3E%3C/svg%3E%0A");
+  content: '';
+  background-size: 40%;
+  position: absolute;
+  width: 9rem;
+  right: -5.5rem;
+  top: 1.3rem;
+  height: 24px;
+  background-repeat: no-repeat;
+  transition: all 300ms;
+  pointer-events: all;
+}
+.slider > a:hover {
+  cursor: pointer;
+}
+.slider > a:hover::after {
+  background-size: 45%;
+  right: -6.5rem;
+}
+
+.slider > h1 {
+  padding: 1.5rem 0 1rem 0;
+  text-transform: capitalize;
+  font-size: 5rem;
+  color: var(--dark);
+  text-align: center;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+}
+.slider > h1::after {
+  content: '';
+  height: 1rem;
+  width: 1rem;
+  margin-left: .5rem;
+  background: var(--accent);
+  display: inline-block;
+  border-radius: 50%;
+}
+.slider img {
+  max-height: 30rem !important;
+  margin: 0 .15rem;
+}
+.splide__pagination {
+  display: none !important;
+}
+.scrollFade {
+  opacity: 1;
+  pointer-events: all;
+}
+.scrollFade--hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-3rem);
+}
+.scrollFade--visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+.scrollFade--animate {
+  transition: opacity 1000ms 100ms ease, transform 800ms 100ms ease;
+}
+
+.PaintingDescription {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  min-height: 100vh;
+  z-index: 4;
+  width: 100vw;
+  gap: 0 3rem;
+  padding: 2rem .5rem;
+  background-color: var(--light);
+  font-family: "Proza Libre", sans-serif;
+  transform: translateX(100vw);
+  transition: transform 1000ms ease;
+}
+.DescriptionOpen {
+  transform: none;
+}
+.PaintingDescription > .CloseIcon {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(1);
+  width: 2rem;
+  height: 2rem;
+  border: 0.1rem solid transparent;
+  position: absolute;
+  top: 1rem;
+  right: 1.9rem;
+  cursor: pointer;
+}
+.PaintingDescription > .CloseIcon::after,
+.PaintingDescription > .CloseIcon::before {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  width: 2rem;
+  height: 0.1rem;
+  background: var(--dark);
+  transform: rotate(45deg);
+  top: 8px;
+  left: 1px;
+}
+.PaintingDescription > .CloseIcon::after {
+  transform: rotate(-45deg);
+}
+.PaintingDescription .DescriptionText {
+  max-width: 30ch;
+  color: var(--dark);
+}
+.PaintingDescription .DescriptionText h1 {
+  font-size: 2.5rem;
+  margin: 0 0 1rem 0;
+}
+.PaintingDescription .DescriptionText p {
+  line-height: 2;
+}
+.PaintingDescription img {
+  max-height: 100vh;
+}
+.PaintingDescription .Links {
+  display: flex;
+  gap: 2rem;
+  margin: 1rem 0 0 0;
+}
+@media only screen and (max-aspect-ratio: 7/5) {
+  .PaintingDescription img {
+    max-height: 80vh;
+    min-width: 50vw;
+    max-width: 95vw;
+  }
+}
+@media only screen and (max-aspect-ratio: 5/3) {
+  .heroArt {
+    transform: translateX(-33.33%);  
+  }
+  #hero { 
+    transform: translateX(-4rem);
+    position: absolute;
+    right: 0;
+  }
+} 
+@media only screen and (max-aspect-ratio: 10/7) {
+  .heroArtContainer {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .heroArt {
+    transform: rotate(45deg) translatey(0);
+    position: absolute;
+    top: 0;
+    z-index: -1;
+  }
+  #welcomeText {
+    margin: 0;
+  }
+  #hero {
+    transform: none;
+    z-index: 1;
+    padding: 2rem;
+    margin: auto;
+    text-align: center;
+    background-color: var(--light);
+    box-shadow: 0 0 0 3rem rgba(255,255,255,.5);
+    height: min-content;
+    gap: 2.5rem 0;
+    padding: 1rem 2rem; 
+    position: static !important;
+  }
+  #CTA {
+    align-items: center;
+  }
+  .arrow {
+    margin-top: -.5rem;
+  }
+  #menuIcon {
+    background-color: var(--light);
+    padding: .5rem;
+  }
+}
+@media only screen and (max-aspect-ratio: 7/6) {
+  .PaintingDescription {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .PaintingDescription img {
+    margin-top: 3rem;
+  }
+  .PaintingDescription h1 {
+    margin: 1rem 0 !important; 
+    text-align: center;
+  }
+  .PaintingDescription .DescriptionText {
+    max-width: 90vw;
+    text-align: center;
+  }
+  .heroArt {
+    display: none;
+  }
+  .Links {
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+  }
+  #header {
+    background: url("/assets/img/contemporaryArt.svg");
+    background-size: 100vh, 100vh 100vw;
+  }
+  #hero {
+    box-shadow: 0 0 0 2rem rgba(255,255,255,.5);
+  }
+  #menuIcon {
+    top: 1rem;
+    right: 1rem;
+  }
+}
+@media only screen and (orientation: portrait) {
+  html {
+    font-size:2.6vmin;
+  }
+  #hero {
+    font-size: 2.6rem;
+    padding: 2rem 1rem;
+  }
+  .slider img {
+    height: auto !important;
+    max-height: 100vh !important;
+    width: 80vw !important;
+  }
+  .slider {
+    padding: 0 10vw;
+  }
+}
+@media only screen and (max-width: 420px) {
+  html {
+    font-size: 2.8vmin !important;
+  }
+  #hero {
+    box-shadow: 0 0 0 1rem rgba(255,255,255,.5);
+  }
+}
+.EmptyBody > * {
+  display: none !important;
+}
+.EmptyBody > #pages, .EmptyBody > #header, .backToTop {
+  display: flex !important;
+}
